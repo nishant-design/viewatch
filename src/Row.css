@@ -1,0 +1,30 @@
+::-webkit-scrollbar{
+    display: none;
+}
+
+.row{
+    margin-left: 20px;
+    color: #fafafa;
+}
+
+.row__poster_container{
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding: 16px;
+    /* background-color: bisque; */
+}
+
+.row__img{
+    width: 100%;
+    object-fit: contain;
+    max-width: 200px;
+    margin-right: 14px;
+    transition: transform 500ms;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.row__img:hover{
+    transform: scale(1.1);
+}

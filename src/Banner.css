@@ -1,0 +1,72 @@
+.banner{
+    color: white;
+    height: 60vh;
+    object-fit:contain;
+    position: relative;
+    background-size: cover;
+    background-image: linear-gradient(red, black);
+}
+
+.banner__content{
+    position: absolute;
+    max-width: 500px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 1.5rem;
+
+}
+
+.banner__content h1{
+    padding-bottom: 0.3rem;
+}
+
+.banner__btn_container{
+    width: 45%;
+    min-width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.banner__btn{
+    padding: 0.5rem 2rem;
+    cursor: pointer;
+    color: white;
+    outline: none;
+    border: none; 
+    font-weight: 700;  
+    border-radius: 0.2vw;
+    background-color: rgba(51, 51, 51, 0.55);
+}
+
+.banner__btn:hover{
+    color: rgb(20, 20, 20);
+    background-color: #fafafa;
+    transition: all 0.2s;
+}
+
+.banner__description{
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.3rem;
+    padding-top: 1rem;
+
+}
+
+@media(max-width:600px){
+    .banner__content{
+        max-width: 400px;
+    }
+
+    .banner__btn{
+        padding: 0.5rem 1.5rem;
+    }
+}
+
+.fade_bottom{
+    height: 30vh;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    background-image: linear-gradient(0deg, rgba(1,1,1,1) 0%, rgba(161,161,161,0) 60%);
+}
