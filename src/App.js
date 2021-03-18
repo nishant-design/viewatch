@@ -3,15 +3,17 @@ import './App.css';
 import Row from './Row';
 import requests from './request';
 import Banner from './Banner';
+import Navbar from './Navbar';
 
 function App() {
   return (
     <div className="app">
       {/* navbar */}
-
+      <Navbar />
 
       {/* banner */}
       <Banner fetchUrl={requests.fetchVieWatchOriginals}/>
+
       {/* rows */}
       <Row title= "VIEWATCH ORIGINALS" fetchUrl={requests.fetchVieWatchOriginals} isOriginals/>
       <Row title= "Trending Now" fetchUrl={requests.fetchTrending} />

@@ -1,0 +1,40 @@
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    z-index: 100;
+    padding: 0 2rem;
+    /* animation */
+    transition: all 0.5s ease-in;
+}
+
+.logo{
+    width: 100px;
+    background-image: url(./viewatch-logo.png);
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.profile{
+    height: 40px;
+}
+
+@media(max-width:600px){
+    .nav{
+        padding: 0 0.8rem;
+    }
+
+    .profile{
+        height: 30px;
+    }
+}
+
+.black_bg{
+    background-color: #111;
+}
