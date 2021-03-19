@@ -34,8 +34,16 @@ function Row(props){
                     }
 
                     return (
-                        <img key={movie.id} className="row__img" src={`${base_url}${ props.isOriginals ? movie.poster_path : movie.backdrop_path}`} alt={movie.name}/>
-                    )
+                        <div className="poster_wrapper">
+                            <img 
+                                key={movie.id} 
+                                className="poster_img" 
+                                src={`${base_url}${ props.isOriginals ? movie.poster_path : movie.backdrop_path}`} 
+                                alt={movie.name}/>
+                            
+                            <div className="poster_name"> {props.isOriginals ? "" : movie?.name || movie?.title} </div>
+                        </div>
+                    )   
                 })}
             </div>
         
