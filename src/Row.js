@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import React from 'react';
 import axios from './axios';
 import './Row.css';
+import YouTube from 'react-youtube';
+import movieTrailer from 'movie-trailer';
 
 const base_url= "https://image.tmdb.org/t/p/w500";
 
@@ -9,7 +11,29 @@ function Row(props){
     // console.log(props)
     const title = props.title;
     const [movies, setMovies] = useState([]);
+    const [trailerUrl, setTrailerUrl] = useState("");
+    const opts = {
+        height: "360",
+        width: "100%",
+        playerVars:{
+            autoplay: 1,
+        }
+    }   
     
+    const loadTrailer = (movie)=>{
+        if(trailerUrl){
+            setTrailerUrl("");
+        }else{
+            movieTrailer(movie?.name || movie?.title || "").then((url)=>{
+                const urlParams = new URLSearchParams(new URL(url).search);
+                setTrailerUrl(urlParams.get("v"));
+
+            }).catch((error)=>{
+                console.log(error);
+            })
+        }
+    }
+
     // a code which runs based on spefic conditions (page load or fetchUrl changes)
     useEffect(()=>{
         async function fetchData(){
@@ -39,14 +63,15 @@ function Row(props){
                                 key={movie.id} 
                                 className="poster_img" 
                                 src={`${base_url}${ props.isOriginals ? movie.poster_path : movie.backdrop_path}`} 
-                                alt={movie.name}/>
+                                alt={movie.name}
+                                onClick={()=> loadTrailer(movie)}/>
                             
                             <div className="poster_name"> {props.isOriginals ? "" : movie?.name || movie?.title} </div>
                         </div>
                     )   
                 })}
             </div>
-        
+            {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
         </div>
     )
 }
